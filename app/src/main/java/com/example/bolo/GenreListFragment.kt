@@ -18,9 +18,8 @@ import kotlin.coroutines.CoroutineContext
 
 class GenreListFragment : Fragment() {
     private var _binding: LayoutGenreListFragmentBinding? = null
-
     private val binding get() = _binding!!
-    private var genreAdapter = GenreAdapter()
+    private val genreAdapter = GenreAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,11 +36,10 @@ class GenreListFragment : Fragment() {
         binding.rvMovies.layoutManager =
             LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
         CoroutineScope(IO).launch {
-
-            val genreResponse = RetrofitBuilder.genreApi.getGenreMusics(APY_KEY)
+            val genreResponse = RetrofitBuilder.genreApi.getGenreMusics(API_KEY)
             withContext(Main){
                 binding.progressBar.isVisible = false
-                genreAdapter.updateAll(genreResponse.genre.tag)
+                genreAdapter.updateAll(genreResponse.genre.tag) //?
 
             }
         }
@@ -60,6 +58,6 @@ class GenreListFragment : Fragment() {
     }
 
     companion object{
-        const val APY_KEY = "8a0e338471e81bb0dffeaa37600d414b"
+        const val API_KEY = "8a0e338471e81bb0dffeaa37600d414b"
     }
 }

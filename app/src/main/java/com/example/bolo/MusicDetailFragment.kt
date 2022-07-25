@@ -35,7 +35,7 @@ class MusicDetailFragment:Fragment() {
         CoroutineScope(IO).launch {
             val musicDetails = RetrofitBuilder.genreApi.getMusicDetails(id,MusicDetailFragment.KEY_TAG_PARA)
             withContext(Main){
-                binding.ivAboutMovie.text = musicDetails.tag
+                binding.category.text = musicDetails.tag
 
             }
         }

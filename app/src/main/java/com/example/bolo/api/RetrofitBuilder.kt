@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
     val genreApi = Retrofit.Builder()
-        .baseUrl("http://ws.audioscrobbler.com/2.0/")
+        .baseUrl("https://ws.audioscrobbler.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(GenreApi::class.java)
