@@ -34,7 +34,8 @@ class GenreListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvMovies.adapter = genreAdapter
-        binding.rvMovies.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+        binding.rvMovies.layoutManager =
+            LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
         CoroutineScope(IO).launch {
 
             val genreResponse = RetrofitBuilder.genreApi.getGenreMusics(APY_KEY)
@@ -44,7 +45,13 @@ class GenreListFragment : Fragment() {
 
             }
         }
-
+                genreAdapter.setOnItemClickListener {
+                    parentFragmentManager.beginTransaction().apply {
+                        replace(R.id.flContent,MusicDetailFragment.newInstence(it.name))
+                        addToBackStack(MusicDetailFragment::class.java.name)
+                        commit()
+                    }
+                }
             }
 
     override fun onDestroyView() {

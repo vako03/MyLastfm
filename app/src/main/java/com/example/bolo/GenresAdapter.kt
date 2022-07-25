@@ -11,6 +11,7 @@ import com.example.bolo.models.Tag
 class GenreAdapter() : RecyclerView.Adapter<GenreAdapter.GenreViewHolder>() {
 
     private val genres = mutableListOf<Tag>()
+    private  var clickListener:((Tag) -> Unit)? = null
 
 
 
@@ -20,9 +21,12 @@ class GenreAdapter() : RecyclerView.Adapter<GenreAdapter.GenreViewHolder>() {
             LayoutGenreItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return GenreViewHolder(binding)
     }
-    fun updateAll(list:List<Tag>) {
-        genres.addAll(list)
+    fun updateAll(genre: List<Tag>) {
+        genres.addAll(genre)
         notifyDataSetChanged()
+    }
+    fun setOnItemClickListener(listener:(Tag) -> Unit){
+        this.clickListener = listener
     }
 
     override fun onBindViewHolder(holder: GenreViewHolder, position: Int) {
@@ -32,6 +36,11 @@ class GenreAdapter() : RecyclerView.Adapter<GenreAdapter.GenreViewHolder>() {
                 holder.binding.root.context.getString(R.string.music_genre,name.toString())
             holder.binding.tvListeners.text =
                 holder.binding.root.context.getString(R.string.music_listener,reach.toString())
+
+            holder.binding.root.setOnClickListener{
+                clickListener?.invoke(genre)
+
+            }
 
 
         }
