@@ -9,11 +9,18 @@ import com.example.bolo.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
 
+
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Handler().postDelayed({
+            startActivity(Intent(this, GenreListFragment::class.java))
+            finish()
+        }, 2000)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flContent,GenreListFragment())

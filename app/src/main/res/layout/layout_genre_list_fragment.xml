@@ -66,7 +66,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-    <Button
+    <ImageButton
+        android:id="@+id/button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -74,6 +75,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="My saved albums"/>
+        android:src="@drawable/ic_button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

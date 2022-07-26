@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:background="#E1FF29">
+    android:layout_width="322dp"
+    android:layout_height="81dp"
+    tools:background="#D4E665"
+    >
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startGuideline"
@@ -21,30 +22,33 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.95" />
 
+
     <TextView
         android:id="@+id/tvGenre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Die hard" />
-
+        app:layout_constraintVertical_bias="0.49"
+        tools:text="rock" />
 
     <TextView
         android:id="@+id/tvListener"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvGenre"
-        tools:text="Die hard" />
+        tools:text="listener" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
